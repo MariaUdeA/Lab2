@@ -25,18 +25,42 @@ int main(){
     }
 return 0;
 }*/
-//Ej4
-/*int convert(char* aa){
-    int num=0;
+/*//Ej4 char array to int
+#include <math.h>
+int convert(char* aa){
+    int size=0;
     for (int i=0;aa[i]!='\0';i++){
-        int num=0;}
+        size++;
+    }
+    int num=0;
+    for (int i=0;i<size;i++){
+        num=num+((aa[i]-48)*pow(10,(size-i-1)));
+    }
     return num;
-}*/
-
-int main()
-{
-    char charnum[5]="John";
-    cout<<sizeof(charnum)<<endl;
-    //int sizee=convert(charnum);
-return 0;
 }
+
+int main(){
+    char charnum[100];
+    cout<<"Ingrese un numero (char[]): ";
+    cin>>charnum;
+    int numchar=convert(charnum);
+    cout<<numchar<<" es en int"<<endl;
+return 0;
+}*/
+/*//Ej 6 minus a mayus, lo otro =
+int main(){
+    char *frase;
+    cout<<"Ingrese una frase de menos de 120 char: "<<endl;;
+    cin>>frase;
+    for (int i=0;*(frase+i)!='\0';i++){
+        if (*(frase+i)>=97 && *(frase+i)<=122){
+            *(frase+i)=(*(frase+i))-32;
+        }
+        else {
+           *(frase+i)=*(frase+i);
+        }
+    }
+    cout<<frase<<endl;
+    return 0;
+}*/
+//Ej 8
