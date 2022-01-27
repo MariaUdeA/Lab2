@@ -120,12 +120,13 @@ int main(){
     cout<<dec<<endl;
     return 0;
 }*/
-/*//Ej 12 print de una matriz cuadrada revision de cuadro mágico SIN TERMINAR
-
+/*//Ej 12 print de una matriz cuadrada revision de cuadro mágico
 int main(){
    int size;
    bool verificando=true;
-   int suma=0;
+   int sumabase=0;
+   int sumaux1=0;
+   int sumaux2=0;
    cout<<"Ingrese el tamaño de lado del cuadrado(matriz): ";
    cin>>size;
    int matrix[size*size];
@@ -141,20 +142,39 @@ int main(){
    }
    //Revisar si es o no magico
    for (int i=0;i<size*size && verificando==true;i++){ //Revisar si hay nums repetidos
-           for (int j=i;j<size*size && verificando==true ;j++){
+           for (int j=i+1;j<size*size && verificando==true ;j++){
                if (matrix[i]==matrix[j]){
                    verificando=false;
-                   cout<<"No es un cuadrado magico"<<endl;
                }
            }
    }
+
    if (verificando){
-
-
-   }
+       for (int i=1;i<=size;i++){ //Se revisa el valor base con el que se compararan todas las sumas, diagonal no principal
+           sumabase=sumabase+matrix[i*(size-1)]; //i*size-size-1=(i-1)*size-1
+       }
+       //Filas y columans
+       for (int i=0;i<size && verificando;i++){
+           sumaux1=0;
+           sumaux2=0;
+           for (int j=0;j<size;j++){
+               sumaux1=sumaux1+matrix[i*size+j];
+               sumaux2=sumaux2+matrix[i+j*size];
+           }
+           verificando=(sumaux1==sumabase && sumaux2==sumabase) ? verificando : false;
+       }
+           if (verificando){
+               sumaux1=0;
+               for (int i=0; i<size && verificando;i++){ //diagonal principal
+                         sumaux1=sumaux1+matrix[i*(size+1)];
+                     }
+               verificando=(sumaux1==sumabase) ? verificando : false;
+           }
+       }
+   (verificando) ? cout<<"Es un cuadrado magico"<<endl : cout<<"No es un cuadrado magico"<<endl;
    return 0;
 }*/
-//Ej 14 Rotaciones
+/*//Ej 14 Rotaciones
 int main(){
    int size=5;
    int matrix[size*size];
@@ -191,4 +211,34 @@ int main(){
        cout<<'\n';
    }
    return 0;
+}*/
+/*//Ej 16 Numero de caminos
+int main(){
+    int malla=2;
+    int roads=1;
+    cout<<"Ingrese el lado de la malla nxn: ";
+    cin>>malla;
+    int abajo=1;
+    for (int i=1;i<=2*malla;i++){ //Factorial de n+n
+        roads=roads*i;
+    }
+    for (int i=1;i<=malla;i++){ //Factorial de n
+        abajo=abajo*i;
+    }
+    roads=roads/(abajo*abajo);
+    cout<<"En una malla "<<malla<<'x'<<malla<<" el numero de caminos es "<<roads<<endl;
+}*/
+/*//Ej 18
+int change(int array[10]){
+
 }
+int main(){
+    int limpio[10]={9,8,7,6,5,4,3,2,1,0};
+    int n;
+    cout<<"Ingrese el numero de permutacion n: ";
+    cin>>n;
+    //funcion anidada, maria, tu puedes
+    for (int i=0;i<n;i++)
+
+
+}*/
