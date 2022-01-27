@@ -89,7 +89,7 @@ int main(){
    cout<<"Texto y otros: "<<otros<<endl;
 return 0;
 }*/
-//Ej 10 Romano a Decimal
+/*//Ej 10 Romano a Decimal TINKERCAD
 int tradliteral(char a){
     int b;
     b = (a=='M') ? 1000 : (a=='D') ? 500 : (a=='C') ? 100 : (a=='L') ? 50 : (a=='X') ? 10 : (a=='V') ? 5 : (a=='I') ? 1 :0;
@@ -97,25 +97,98 @@ int tradliteral(char a){
 }
 
 int main(){
-    char* roman="CC";
-    int dec;
+    char roman[20];
+    int dec=0;
     int arraydec[20]={0};
     int primero=0;
     int segundo=0;
     cout<<"Ingrese un numero romano: ";
-    //cin>>roman;
-    for (int i=0;i<=(sizeof(arraydec)/sizeof(arraydec[0]))+1;i++){
+    cin>>roman;
+    for (int i=0;*(roman+i)!='\0';i++){
         *(arraydec+i)=tradliteral(*(roman+i));
     }
     for (int i=0;*(arraydec+i)!=0;i++){
-       segundo=*(arraydec+i);
+       primero=*(arraydec+i);
+       segundo=*(arraydec+i+1);
        if (primero>=segundo){
-           dec=dec+segundo;
+           dec=dec+primero;
        }
        else {
-           dec=dec-segundo;
+           dec=dec-primero;
        }
     }
-    cout<<'\n'<<dec<<endl;
+    cout<<dec<<endl;
     return 0;
+}*/
+/*//Ej 12 print de una matriz cuadrada revision de cuadro mágico SIN TERMINAR
+
+int main(){
+   int size;
+   bool verificando=true;
+   int suma=0;
+   cout<<"Ingrese el tamaño de lado del cuadrado(matriz): ";
+   cin>>size;
+   int matrix[size*size];
+   cout<<"Ingrese los numeros de izquierda a derecha, arriba a abajo: "<<endl;
+   for (int i=0;i<size*size;i++){ //Crear la matriz (array)
+       cin>>*(matrix+i);
+   }
+   for (int i=0;i<size;i++){ //Imprimir
+       for (int j=0;j<size;j++){
+           cout<<matrix[j+i*size]<<' ';
+       }
+       cout<<'\n';
+   }
+   //Revisar si es o no magico
+   for (int i=0;i<size*size && verificando==true;i++){ //Revisar si hay nums repetidos
+           for (int j=i;j<size*size && verificando==true ;j++){
+               if (matrix[i]==matrix[j]){
+                   verificando=false;
+                   cout<<"No es un cuadrado magico"<<endl;
+               }
+           }
+   }
+   if (verificando){
+
+
+   }
+   return 0;
+}*/
+//Ej 14 Rotaciones
+int main(){
+   int size=5;
+   int matrix[size*size];
+   cout<<"Ingrese los numeros de izquierda a derecha, arriba a abajo: "<<endl;
+   for (int i=0;i<size*size;i++){ //Crear la matriz (array)
+       *(matrix+i)=i+1;
+   }
+   cout<<"Original: "<<endl;
+   for (int i=0;i<size;i++){ //Imprimir
+       for (int j=0;j<size;j++){
+           cout<<matrix[j+i*size]<<' ';
+       }
+       cout<<'\n';
+   }
+   cout<<"\n90 grados: "<<endl;
+   for (int i=0;i<size;i++){
+       for (int j=size-1;j>=0;j--){
+           cout<<matrix[i+j*size]<<' ';
+       }
+       cout<<'\n';
+   }
+   cout<<"\n180 grados: "<<endl;
+   for (int i=size-1;i>=0;i--){
+       for (int j=size-1;j>=0;j--){
+           cout<<matrix[i*size+j]<<' ';
+       }
+       cout<<'\n';
+   }
+   cout<<"\n270 grados: "<<endl;
+   for (int i=size-1;i>=0;i--){
+       for (int j=0;j<size;j++){
+           cout<<matrix[j*size+i]<<' ';
+       }
+       cout<<'\n';
+   }
+   return 0;
 }

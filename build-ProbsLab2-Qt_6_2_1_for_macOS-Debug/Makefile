@@ -165,6 +165,7 @@ DIST          = /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_pre.prf 
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/qt_config.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_post.prf \
+		../ProbsLab2/.qmake.stash \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/mac/sdk.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/toolchain.prf \
@@ -195,7 +196,7 @@ TARGET        = ProbsLab2
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 11.1
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Users/mariadelmar/Downloads/Xcode-beta.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Labs/Lab2/build-ProbsLab2-Qt_6_2_1_for_macOS-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -321,6 +322,7 @@ Makefile: ../ProbsLab2/ProbsLab2.pro /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/m
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/qt_config.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/mac/sdk.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/toolchain.prf \
@@ -455,6 +457,7 @@ Makefile: ../ProbsLab2/ProbsLab2.pro /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/m
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/qt_config.prf:
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang/qmake.conf:
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/exclusive_builds.prf:
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/mac/sdk.prf:
 /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/toolchain.prf:
@@ -500,6 +503,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
