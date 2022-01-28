@@ -239,12 +239,12 @@ int main(){
     int posicion;
     int factorial;
     int c=0;
-    for (int i=9;i>=0;i--){
+    for (int i=9;i>=0 && n>0;i--){
         factorial=1;
         for (int j=1;j<=i;j++){
             factorial=factorial*j;
         }
-        posicion=((n)/factorial);
+        posicion=((n+1)/factorial);
         placeholder=limpio[posicion+c];
         limpio[posicion+c]=limpio[c];
         limpio[c]=placeholder;
@@ -256,4 +256,5 @@ int main(){
     for (int i=0;i<=9;i++){
         cout<<limpio[i];
     }
+    cout<<'\n'<<endl;
 }
