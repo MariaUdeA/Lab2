@@ -236,11 +236,11 @@ int main(){
     int posicion;
     int factorial;
     int c=0;
+    for (int j=1;j<=10;j++){
+        factorial=factorial*j;
+    }
     for (int i=9;i>0 && n>=0;i--){
-        factorial=1;
-        for (int j=1;j<=i;j++){
-            factorial=factorial*j;
-        }
+        factorial=factorial/(i+1);
         posicion=((n-1)/factorial);
         placeholder=limpio[posicion+c];
         limpio[posicion+c]=limpio[c];
