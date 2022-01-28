@@ -229,16 +229,31 @@ int main(){
     cout<<"En una malla "<<malla<<'x'<<malla<<" el numero de caminos es "<<roads<<endl;
 }*/
 //Ej 18
+#include <algorithm>
 int main(){
-    int limpio[4]={0,1,2,3};
-    int n;
-    //int permutaciones[10]={0};
-    cout<<"Ingrese el numero de permutacion n: ";
-    cin>>n;
-    int max=1;
-    for (int i=1;i<=4;i++){//Se calcula el maximo de permutaciones
-        max=i*max;
+    int limpio[10]={0,1,2,3,4,5,6,7,8,9};
+    int n=1000000;
+    int placeholder;
+    /*cout<<"Ingrese el numero de permutacion n: ";
+    cin>>n;*/
+    int posicion;
+    int factorial;
+    int c=0;
+    for (int i=9;i>=0;i--){
+        factorial=1;
+        for (int j=1;j<=i;j++){
+            factorial=factorial*j;
+        }
+        posicion=((n)/factorial);
+        placeholder=limpio[posicion+c];
+        limpio[posicion+c]=limpio[c];
+        limpio[c]=placeholder;
+        sort(limpio+c+1,limpio+9);
+        c++;
+        n=n-factorial*posicion;
     }
-    cout<<max<<endl;
 
+    for (int i=0;i<=9;i++){
+        cout<<limpio[i];
+    }
 }
