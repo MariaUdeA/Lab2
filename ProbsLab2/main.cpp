@@ -41,23 +41,20 @@ int convert(char* aa){
 
 int main(){
     char charnum[100];
-    cout<<"Ingrese un numero (char[]): ";
+    cout<<"Ingrese un numero (char[]) de máximo 100 caracteres: ";
     cin>>charnum;
     int numchar=convert(charnum);
     cout<<numchar<<" es en int"<<endl;
 return 0;
 }*/
-/*//Ej 6 minus a mayus, lo otro = FALTA LO DE TINKERCAD
+/*//Ej 6 minus a mayus, lo otro =
 int main(){
-    char *frase;
+    char frase[120];
     cout<<"Ingrese una frase de menos de 120 char: "<<endl;;
     cin>>frase;
     for (int i=0;*(frase+i)!='\0';i++){
         if (*(frase+i)>=97 && *(frase+i)<=122){
             *(frase+i)=(*(frase+i))-32;
-        }
-        else {
-           *(frase+i)=*(frase+i);
         }
     }
     cout<<frase<<endl;
@@ -89,7 +86,7 @@ int main(){
    cout<<"Texto y otros: "<<otros<<endl;
 return 0;
 }*/
-/*//Ej 10 Romano a Decimal TINKERCAD
+/*//Ej 10 Romano a Decimal
 int tradliteral(char a){
     int b;
     b = (a=='M') ? 1000 : (a=='D') ? 500 : (a=='C') ? 100 : (a=='L') ? 50 : (a=='X') ? 10 : (a=='V') ? 5 : (a=='I') ? 1 :0;
@@ -228,33 +225,34 @@ int main(){
     roads=roads/(abajo*abajo);
     cout<<"En una malla "<<malla<<'x'<<malla<<" el numero de caminos es "<<roads<<endl;
 }*/
-//Ej 18
+/*//Ej 18 Permutaciones para sufrir
 #include <algorithm>
 int main(){
     int limpio[10]={0,1,2,3,4,5,6,7,8,9};
-    int n=1000000;
+    int n;
     int placeholder;
-    /*cout<<"Ingrese el numero de permutacion n: ";
-    cin>>n;*/
+    cout<<"Ingrese el numero de permutacion n: ";
+    cin>>n;
     int posicion;
     int factorial;
     int c=0;
-    for (int i=9;i>=0 && n>0;i--){
+    for (int i=9;i>0 && n>=0;i--){
         factorial=1;
         for (int j=1;j<=i;j++){
             factorial=factorial*j;
         }
-        posicion=((n+1)/factorial);
+        posicion=((n-1)/factorial);
         placeholder=limpio[posicion+c];
         limpio[posicion+c]=limpio[c];
         limpio[c]=placeholder;
-        sort(limpio+c+1,limpio+9);
+        sort(limpio+c+1,limpio+10);
         c++;
-        n=n-factorial*posicion;
+        n=(n-factorial*(posicion));
+
     }
 
     for (int i=0;i<=9;i++){
         cout<<limpio[i];
     }
     cout<<'\n'<<endl;
-}
+}*/
