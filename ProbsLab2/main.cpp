@@ -228,17 +228,17 @@ int main(){
     roads=roads/(abajo*abajo);
     cout<<"En una malla "<<malla<<'x'<<malla<<" el numero de caminos es "<<roads<<endl;
 }*/
-/*//Ej 18
-int change(int array[10]){
-
-}
+//Ej 18
 int main(){
-    int limpio[10]={9,8,7,6,5,4,3,2,1,0};
+    int limpio[4]={0,1,2,3};
     int n;
+    //int permutaciones[10]={0};
     cout<<"Ingrese el numero de permutacion n: ";
     cin>>n;
-    //funcion anidada, maria, tu puedes
-    for (int i=0;i<n;i++)
+    int max=1;
+    for (int i=1;i<=4;i++){//Se calcula el maximo de permutaciones
+        max=i*max;
+    }
+    cout<<max<<endl;
 
-
-}*/
+}
