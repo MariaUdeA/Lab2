@@ -8,13 +8,22 @@ int tradliteral(char a){
 void setup()
 {
   Serial.begin(9600);
-    int dec=0;
+    
+}
+
+String roman="nananan";
+void loop()
+{
+  int dec=0;
     int arraydec[20]={0};
     int primero=0;
     int segundo=0;
     Serial.println(F("Ingrese un numero romano: "));
-    String roman=Serial.readString();
-  for (int i=0;roman[i]!='\n';i++){
+   while (Serial.available() == 0){
+    
+  }
+    roman=Serial.readString();
+  for (int i=0;roman[i]!='\0';i++){
         arraydec[i]=tradliteral(roman[i]);
     }
     for (int i=0;arraydec[i]!=0;i++){
@@ -28,10 +37,5 @@ void setup()
        }
     }
     Serial.println(dec);
-    
-}
-
-void loop()
-{
   
 }
