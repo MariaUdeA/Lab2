@@ -5,9 +5,9 @@
 void setup()
 {
   Serial.begin(9600);
-  Serial.print(F("Ingrese una frase de menos de 120 char:"));
-  String frase="poder"; //Serial.readString(); No se porque no funciona el read
-  for (int i=0;frase[i]!='\0';i++){
+  Serial.print(F("Ingrese una frase:"));
+  String frase=Serial.readString();
+  for (int i=0;frase[i]!='\n';i++){
     	if (frase[i]>=97 && frase[i]<=122){
             frase[i]=frase[i]-32;
         }

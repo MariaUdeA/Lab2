@@ -13,8 +13,8 @@ void setup()
     int primero=0;
     int segundo=0;
     Serial.println(F("Ingrese un numero romano: "));
-    String roman="DCLXVI"; //Serial.readString();
-  for (int i=0;roman[i]!='\0';i++){
+    String roman=Serial.readString();
+  for (int i=0;roman[i]!='\n';i++){
         arraydec[i]=tradliteral(roman[i]);
     }
     for (int i=0;arraydec[i]!=0;i++){
